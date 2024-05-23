@@ -10,12 +10,57 @@
 
     <style type="text/css">
 
+        div {
+            border: 1px darkred;
+            width: 900px; 
+            height: 300px;
+            padding: 20px;
+            text-align: left;
+
+          }
+          p {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 50px;
+            margin-top: 0;
+            margin-bottom: 0;
+            line-height:100%;
+            letter-spacing: 15px;
+          }
+          #grow:hover {
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
 
-    <h1>This is a Manifesto</h1>
-    <p>This is a paragraph.</p>
+    <div> 
+    <p id="grow" style="text-align: center;">The FUTURE </p>
+        <p style="white-sapce: nowrap;"> will favour materials </p>
+        <p> which best solve </p>
+        <p> the problems </p>
+        <p> propounded by </p>
+        <p style="font-family: Helvetica; font-size: 70px; font-weight: bold; color: darkred; text-align: right; white-space: nowrap;"> THE NEW MAN:</p>
+
+        <script type="text/javascript">
+  let g = document.getElementById("grow");
+
+  // Set the initial font-size property in JavaScript
+  g.style.fontSize = "100%";
+
+  // Add a function to the onclick event
+  g.onclick = function() {
+    // Determine the current font size and convert it to an integer
+    let fs = Number(this.style.fontSize.replace("%", ""));
+
+    // Change the color of the clicked element
+    this.style.color = "red";
+
+    // Increase the font size by 10%
+    this.style.fontSize = fs * 1.1 + "%";
+  };
+</script>
+
 
 </body>
 </html> 
