@@ -3,23 +3,274 @@
 <head>
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 
 
     <title>My Self Portrait</title> 
     <!--
         Use this page to complete the "Data Self Portrait" project:
         https://canvas.umw.edu/courses/1498218/assignments/11723291
+
+        This is my (Angie Hassanein) version of a 'Data Self Portrait', I added a bar chart showing my steps of the week, i added a doughnut chart to show how i spend an average day, I added emojis to show my family members and what type of weather I liked best, i added in a photo of a Taylor Swift Tour poster as I love concerts.
     -->  
 
     <style type="text/css">
+       
+    @keyframes light-to-dark {
+      from {background-color: cornsilk;}
+      to {background-color: darkgrey;}
 
+    }
 
+    body {
+      background-color: cornsilk; 
+        animation-name: light-to-dark; 
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+    }
 
-    </style>
+      div { 
+      }
 
+      p { 
+        font-family: 'Helvetica';
+        font-size: 14px; 
+        line-height: 100%;
+        letter-spacing: 1.2px
+      }
+
+        #grow:hover {
+          cursor grab;
+        }
+          #shrink:hover { 
+            cursor: not-allowed;
+          }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  font-family: Helvetica;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: pink;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: lightgrey;
+  border: 4px solid grey;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left {
+  left: 0;
+}
+.right {
+  left: 50%;
+}
+
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+.right::after {
+  left: -16px;
+}
+
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .timeline::after {
+  left: 31px;
+  }
+  
+  .container {
+  width: 100%;
+  text-align: center; 
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  .container::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  .right {
+  left: 0%;
+  }
+}
+</style>
 </head>
 <body>
 
+
+<canvas id="mySteps" style="width:100%;max-width:700px"></canvas>
+
+<script> const xValues = ["Friday", "Saturday", "Sunday","Monday", "Tuesday", "Wednesday", "Thursday"];
+const yValues = [13606, 11406, 10521, 17371, 11926, 9190, 8045];
+const barColors = ["pink", "lightblue", "olive", "navy", "darkgrey", "maroon", "green"];
+new Chart("mySteps", {
+    type: "horizontalBar",
+    data: {
+        labels: xValues,
+        datasets:[{ backgroundColor:barColors, data: yValues
+    }]
+    },
+    options: {
+        legend: {display: false}, 
+        title: {
+            display: true,
+            text: "Steps of the week"
+        }
+    }
+
+});
+</script>
+
+
+<canvas id="myDay" style="width:100%;max-width:600px"></canvas>
+<script>
+    const labels = ["Reading", "Sleeping", "Working", "Studying", "Other"];
+    const data = [2, 7, 10, 2, 3];
+    const colors = ["lightblue", "lightpink", "lightgreen", "lightpurple", "maroon"];
+    new Chart("myDay", {
+        type: "doughnut",
+        data: {
+            labels: labels, 
+            datasets: [{
+                backgroundColor: colors,
+                data: data
+            }]
+        },
+        options: {
+            title: {
+                display: true, 
+                text: "How I spend my time in a day"
+            }
+        }
+    });
+</script>
+
+
+
+
+
+
+<div title="Self Portrait">
+    <h2> Self Portrait </h2>
+    <img src="Eras_poster.jpeg" alt="Taylor Swift" width="500" height="333">
+
+<div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h2>2000🌞</h2>
+      <p> 🐶 </p>
+      <p> 👨‍👩‍👧‍👦 </p>
+
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2005🌞</h2>
+      <p> 🐶 </p>
+      <p> 👨‍👩‍👧‍👦 </p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>2010 🌞</h2>
+      <p> 🐶 </p>
+      <p> 👨‍👩‍👧‍👦 </p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2015🌙</h2>
+      <p> 🐶 </p>
+      <p> 👩‍🍼👨‍👧‍👦</p>
+
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>2020🌙</h2>
+      <p> 🐶🐶 </p>
+      <p> 👨‍🦽🧍‍♀️👭 </p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>2024 🌦️</h2>
+      <p> 🐶🐶 </p>
+      <p> 👨‍🦽🧓🧍‍♀️👭</p>
+
+    </div>
+  </div>
+</div>
 
 </body>
 </html> 
