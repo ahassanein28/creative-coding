@@ -48,6 +48,6 @@ function mouseClicked() {
       xspeed: 5, 
       yspeed: 7, 
       color: [random(255), random(255), random(255)] // random colors for each new circle 
-      // source: https://editor.p5js.org/aferriss/sketches/HJKCR03uG
+                                                    // source: https://editor.p5js.org/aferriss/sketches/HJKCR03uG
     });
 }
