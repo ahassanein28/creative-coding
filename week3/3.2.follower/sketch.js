@@ -18,9 +18,9 @@ let goalSize = 30;
 let bgImage, followerImg, goalImg; 
 
 function preload() { 
-bgImage = loadImage(' ');
-followerImg = loadImage(' ');
-goalImg = loadImage(' ');
+bgImage = loadImage('https://ahassanein28.github.io/creative-coding/week3/3.2.follower/background.jpg');
+followerImg = loadImage('https://ahassanein28.github.io/creative-coding/week3/3.2.follower/Design.png');
+goalImg = loadImage('https://ahassanein28.github.io/creative-coding/week3/3.2.follower/watermelon.jpg');
 
 }
 
