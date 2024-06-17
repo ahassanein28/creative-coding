@@ -12,15 +12,15 @@ let d = 0;
 
 let goalx = 0; 
 let goaly = 0; 
-let goalSize = 30; 
+let goalSize = 50; 
 
 // declaring variables for images 
 let bgImage, followerImg, goalImg; 
 
 function preload() { 
 bgImage = loadImage('https://ahassanein28.github.io/creative-coding/week3/3.2.follower/background.jpg');
-followerImg = loadImage('https://ahassanein28.github.io/creative-coding/week3/3.2.follower/Design.png');
-goalImg = loadImage('https://ahassanein28.github.io/creative-coding/week3/3.2.follower/watermelon.jpg');
+followerImg = loadImage('https://ahassanein28.github.io/creative-coding/week3/3.2.follower/follower.jpg');
+goalImg = loadImage('https://ahassanein28.github.io/creative-coding/week3/3.2.follower/fruit.jpg');
 
 }
 
@@ -50,7 +50,7 @@ function draw() {
 
 
   // bird for the follower 
-  image(followerImg, x,y,50);
+  image(followerImg, x,y,100, 100);
 
   if (mouseX > x){
     // move to the right 
