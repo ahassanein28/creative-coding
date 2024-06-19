@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+  <title>Safety: Instructions for Palestine, by Angie Hassanein</title>
+
+    	<!-- Safety reimplementation, 
+copyright (c) 2019, 2024 Angie Hassanein 
+based on a 2019 program by Nick Montfort  
+https://nickm.com/poems/safety.html
+
+
+This uses a generative text algorithm to create a series of war related safety instructions. The instructions, while random, are meant to envoke the realities of life in a conflict zone. The script generates a new set of instructions every five seconds, mirrioring the unpredictable and rapidly changing circumstances Palestinians must face. This is a statement on human condition and a call to empathy and understanding. 
+
+
+    Copying and distribution of this file, with or without modification, are
+    permitted in any medium without royalty provided the copyright notice and
+    this notice are preserved. This file is offered as-is, without any warranty.
+
+    I wrote this text generator in Python on April 7, 2008, never distributed or
+    exhibited it, and just found it recently among older files. On September 15,
+    2019, I wrote this HTML/JavaScript implementation of the generator. In terms
+    of the way text is generated, this version functions exactly as does the
+    2008 Python program. The typography is different, as the Python program runs
+    in a terminal window.
+    -->
+
+    	<script>
+      const title = [
+        ['Operating the '],
+        ['', '', '', '', '', '', '', '', 'Suspected ', 'Pre-'],
+        ['Emergency ', 'Emergency ', 'Emergency ', 'Emergency ', 'Emergency ',
+         'Fire ', 'Tornado ', 'Bomb ', 'Crisis '],
+        ['Shelter', 'First Aid Kit', 'Emergency Contact', 'Safe Route', 'Food Supply', 'Water Supply',
+         'Medical Aid', 'Evacuation Plan', 'Rescure Signal', 'Peace Symbol']
+      ],
+      text = [
+        [' LOCATE ',' USE ',' FOLLOW ',' CONTACT ',' CHECK ',' SECURE ',
+         ' EXTEND '],
+        ['SHELTER','FIRST AID KIT','SAFE ROUTE','EMERGENCY CONTACT','FOOD SUPPLY','WATER SUPPLY','MEDICAL AID','EVACUATION PLAN',
+         'RESCUE SIGNAL','PEACE SYMBOL'],
+        ['', '', '', '', '', '', '', ' QUICKLY', ' CAREFULLY', ' QUIETLY']
+      ];
+
+      function choice(array) {
+				return array[~~(Math.random() * array.length)];
+      }
+
+      function instruct() {
+        var headline = "", n, instructions = "",
+          head_div = document.getElementById("headline"),
+          inst_div = document.getElementById("instructions");
+        for (var i = 0 ; i < 4 ; i++) { headline += choice(title[i]); }
+        head_div.innerHTML = headline;
+        n = 2 + ~~(Math.random() * 8); // Between 2 and 10 instructions
+        for (var i = 0 ; i < n ; i++) {
+          instructions += "<li>";
+          for (var j = 0 ; j < 3 ; j++) { instructions += choice(text[j]); }
+          instructions += "</li>";
+        }
+        inst_div.innerHTML = instructions;
+      }
+
+      function go() {
+        instruct();
+        setInterval(instruct, 5000);
+      }
+      </script>
+
+</head>
+<body onload=go() style="font-size:3.2vh; margin:7vh; font-family:sans-serif">
+  <h1 style="color:red; text-align:center">YOUR ATTENTION PLEASE</h1>
+  <h2 style="color:green; text-align:center">The following instructions are
+		important to your safety in Palestine</h2>
+  <h1 id=headline style="display:flex; justify-content:center"></h1>
+  <div style="display:flex; justify-content:center">
+  <ol id=instructions></ul>
+  </div>
+</body>
+</html>
