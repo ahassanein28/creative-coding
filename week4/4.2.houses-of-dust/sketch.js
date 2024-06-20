@@ -3,21 +3,21 @@ let poem = '';
 
 let grammer = tracery.createGrammar ({
   "origin":["A HOUSE OF #material#\n#place#\nUSING #light_source#\nINHABITED BY #inhabitants#"],
-  "material": ["MUD","BRICKS","LEAVES","WEEDS","STEEL","SAND","DUST","WOOD","STRAW","DISCARDED CLOTHING"],
-  "place": ["IN A GREEN, MOSSY TERRAIN","BY THE SEA","IN DENSE WOODS", "IN A DESERT", "IN A COLD, WINDY CLIMATE","BY A RIVER","IN MICHIGAN","UNDERWATER","INSIDE A MOUNTAIN"],
-  "light_source":["CANDLES","ALL AVAILABLE LIGHTING","ELECTRICITY","NATURAL LIGHT"],
-  "inhabitants":["PEOPLE WHO SLEEP VERY LITTLE","VEGETARIANS","HORSES AND BIRDS", "PEOPLE SPEAKING MANY LANGUAGES WEARING LITTLE OR NO CLOTHING","ALL RACES OF MEN REPRESENTED WEARING PREDOMINANTLY RED CLOTHING","CHILDREN AND OLD PEOPLE","LITTLE BOYS","FRIENDS","PEOPLE WHO LOVE TO READ"]
+  "material": ["TEARDROPS", "PAPER AIRPLANES","SILK","VELVET","GOLD","DIAMONDS","PEARLS"],
+  "place": ["IN CENTENNIAL PARK", "CITY OF DREAMERS", "THE BLACK DOG","AN ALLY WAY IN PARIS", "CORNELIA STREET","DIVE BAR ON THE EAST SIDE","CRUMBLING CASTLES"],
+  "light_source":["MOONLIGHT","DAYLIGHT","STARLIGHT","SUNSET","CITY LIGHTS","CANDLELIGHT","SPOTLIGHT"],
+  "inhabitants":["LOVERS","HEARTBREAK PRINCE","MISS AMERICANA","MARY","DAYDREAMERS","VIPERS","THE BOLTER"]
 });
 
 function setup() {
   createCanvas(800, 800);
   frameRate(0.5);
+  textFont("Impact");
+  textSize(25);
 }
 
 function draw() {
-  background(220);
+  background(255,182,193);
   poem = grammer.flatten("#origin#");
-  textFont("Impact");
-  textSize(25);
-  text(poem,200,200);
+  text(poem, random(width), random(height));
 }
