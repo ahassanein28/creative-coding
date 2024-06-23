@@ -9,6 +9,7 @@ class Rippler {
     this.x = x, 
     this.y = y, 
     this.d = 0
+
     // adding random colored ripples! 
     this.color = color(random(255), random(255), random(255));
   }
@@ -32,20 +33,7 @@ function draw() {
 
 for (let i = 0; i < ripplers.length; i++){
   ripplers[i].draw();
-}
-
-
-  // ripple_d += 1; 
-  // circle(ripple_x, ripple_y, ripple_d); 
-
-  // push();
-  // fill("white");
-  // strokeWeight(1);
-  // textSize(50);
-  // text("ripple_x: " + ripple_x, 50, 50); 
-  // text("ripple_y: " + ripple_y, 50, 100);
-
-  // pop();
+  }
 }
 
 
